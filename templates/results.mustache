@@ -1,0 +1,17 @@
+<h1>{{question}}</h1>
+
+<div id="flot" style="width:500px;height:200px"></div>
+
+<a href="/poll/{{id}}?username={{rand_username}}">vote again</a>
+
+<br/>
+<h2>Voted:</h2>
+{{#voters}}
+	{{name}}<br/>
+{{/voters}}
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.plot($("#flot"), {{{flot_data}}}, {{{flot_options}}});
+	});
+</script>

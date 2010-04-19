@@ -1,0 +1,11 @@
+<h1>[{{id}}] {{question}}</h1>
+
+<form action="/vote/{{id}}" method="post">
+	{{#options}}
+		<input type="radio" name="option" value="{{option}}" id="option_{{option}}"/> <label for="option_{{option}}" class="for_radio">{{text}}</label><br/>
+	{{/options}}
+	
+	<input type="submit" value="vote!"/>
+	or 
+	<a href="/">new poll</a>
+</form>

@@ -1,0 +1,32 @@
+<html>
+	<head>
+  	<title>{{title}} as {{username}}</title>
+
+		<script language="javascript" type="text/javascript" src="/flot/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/flot/jquery.flot.min.js"></script>
+ 		<!--[if IE]><script language="javascript" type="text/javascript" src="/flot/excanvas.pack.js"></script><![endif]-->
+		
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				font-size: 12px;
+			}
+			form textarea, form input[type=text] {
+				display: block;
+				margin: 5px 0;
+			}
+			label.for_radio {
+				display: inline;
+			}
+			
+			.tickLabel {
+				font-weight: bold;
+				font-size: 16px;
+			}
+		
+		</style>
+	</head>
+	<body>
+		{{{yield}}}
+	</body>
+</html>
