@@ -4,20 +4,16 @@ module Views
       @poll['id']
     end
     
-    def rand_username
-      rand(10_000).to_s
-    end
-    
     def question
       @poll['question']
     end
     
     def options
       [
-        {'option' => '0', 'text' => @poll['options']['0'], 'votes' => @votes[0]},
-        {'option' => '1', 'text' => @poll['options']['1'], 'votes' => @votes[1]},
-        {'option' => '2', 'text' => @poll['options']['2'], 'votes' => @votes[2]},
-        {'option' => '3', 'text' => @poll['options']['3'], 'votes' => @votes[3]}
+        {'option' => '0', 'text' => @poll['options']['0'], 'votes' => @votes[0], 'voters' => @voters[0].collect {|voter| {:name => voter}}.uniq.compact},
+        {'option' => '1', 'text' => @poll['options']['1'], 'votes' => @votes[1], 'voters' => @voters[1].collect {|voter| {:name => voter}}.uniq.compact},
+        {'option' => '2', 'text' => @poll['options']['2'], 'votes' => @votes[2], 'voters' => @voters[2].collect {|voter| {:name => voter}}.uniq.compact},
+        {'option' => '3', 'text' => @poll['options']['3'], 'votes' => @votes[3], 'voters' => @voters[3].collect {|voter| {:name => voter}}.uniq.compact}
       ]
     end
     
@@ -40,14 +36,6 @@ module Views
         }
       })
     end
-    
-    def voters
-      [
-        @voters[0].collect {|voter| {:name => voter}},
-        @voters[1].collect {|voter| {:name => voter}},
-        @voters[2].collect {|voter| {:name => voter}},
-        @voters[3].collect {|voter| {:name => voter}},
-      ]
-    end
+
   end
 end

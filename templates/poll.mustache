@@ -1,11 +1,19 @@
 <h1>[{{id}}] {{question}}</h1>
 
-<form action="/vote/{{id}}" method="post">
-	{{#options}}
-		<input type="radio" name="option" value="{{option}}" id="option_{{option}}"/> <label for="option_{{option}}" class="for_radio">{{text}}</label><br/>
-	{{/options}}
+{{#logged_in}}
+	<form action="/vote/{{id}}" method="post">
+		{{#options}}
+			<input type="radio" name="option" value="{{option}}" id="option_{{option}}"/> <label for="option_{{option}}" class="for_radio">{{text}}</label><br/>
+		{{/options}}
 	
-	<input type="submit" value="vote!"/>
-	or 
-	<a href="/">new poll</a>
-</form>
+		<input type="submit" value="vote!"/>
+		or 
+		<a href="/">new poll</a>
+	</form>
+
+{{/logged_in}}
+{{^logged_in}}
+	{{voted}} have already voted - add your vote!<br/>
+	<a href="/connect">Login with twitter!</a>
+{{/logged_in}}
+
